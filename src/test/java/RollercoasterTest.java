@@ -6,9 +6,13 @@ import static org.junit.Assert.assertEquals;
 public class RollercoasterTest {
 
     Rollercoaster rollercoaster;
+    Customer customer;
+    Customer customer2;
 
     @Before
     public void before(){
+        customer = new Customer("Jimmy", 1.65, 6.00);
+        customer2 = new Customer("Stevie", 1.50, 3.00);
         rollercoaster = new Rollercoaster(1.65, 6.00);
     }
 
@@ -20,5 +24,15 @@ public class RollercoasterTest {
     @Test
     public void hasPrice() {
         assertEquals(6.00, rollercoaster.getPrice(), 0.01);
+    }
+
+    @Test
+    public void isTallEnoughToRide() {
+        assertEquals(true, rollercoaster.checkHeight(customer));
+    }
+
+    @Test
+    public void isNotTallEnoughToRide() {
+        assertEquals(false, rollercoaster.checkHeight(customer2));
     }
 }

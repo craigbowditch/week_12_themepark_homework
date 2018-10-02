@@ -15,4 +15,11 @@ public abstract class Ride {
     public double getPrice() {
         return price;
     }
+
+    public boolean checkHeight(Customer customer){
+        if (customer.getHeight() >= this.minHeight){
+            return true;
+        }
+        return false;
+    }
 }
