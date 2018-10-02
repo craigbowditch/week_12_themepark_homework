@@ -28,21 +28,23 @@ public class LogFlumeTest {
 
     @Test
     public void isTallEnoughToRide() {
-        assertEquals(true, logFlume.checkHeight(customer));
+        assertEquals(true, logFlume.isTallEnough(customer));
     }
 
     @Test
     public void isNotTallEnoughToRide() {
-        assertEquals(false, logFlume.checkHeight(customer2));
+        assertEquals(false, logFlume.isTallEnough(customer2));
     }
 
     @Test
     public void hasEnoughMoneyToRide() {
-        assertEquals(true, logFlume.checkMoney(customer));
+        logFlume.canPay(customer);
+        assertEquals(15.00, customer.getMoney(), 0.01);
     }
 
     @Test
     public void doesntHaveEnoughMoneyToRide() {
-        assertEquals(false, logFlume.checkMoney(customer2));
+        logFlume.canPay(customer2);
+        assertEquals(4.99, customer2.getMoney(), 0.01);
     }
 }

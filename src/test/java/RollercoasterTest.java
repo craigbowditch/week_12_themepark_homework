@@ -28,21 +28,23 @@ public class RollercoasterTest {
 
     @Test
     public void isTallEnoughToRide() {
-        assertEquals(true, rollercoaster.checkHeight(customer));
+        assertEquals(true, rollercoaster.isTallEnough(customer));
     }
 
     @Test
     public void isNotTallEnoughToRide() {
-        assertEquals(false, rollercoaster.checkHeight(customer2));
+        assertEquals(false, rollercoaster.isTallEnough(customer2));
     }
 
     @Test
     public void hasEnoughMoneyToRide() {
-        assertEquals(true, rollercoaster.checkMoney(customer));
+        rollercoaster.canPay(customer);
+        assertEquals(0, customer.getMoney(), 0.01);
     }
 
     @Test
     public void doesntHaveEnoughMoneyToRide() {
-        assertEquals(false, rollercoaster.checkMoney(customer2));
+        rollercoaster.canPay(customer2);
+        assertEquals(3.00, customer2.getMoney(), 0.01);
     }
 }

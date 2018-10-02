@@ -16,17 +16,16 @@ public abstract class Ride {
         return price;
     }
 
-    public boolean checkHeight(Customer customer){
-        if (customer.getHeight() >= this.minHeight){
+    public boolean isTallEnough(Customer customer) {
+        if (customer.getHeight() >= this.minHeight) {
             return true;
         }
         return false;
     }
 
-    public boolean checkMoney(Customer customer){
+    public void canPay(Customer customer) {
         if (customer.getMoney() >= this.price){
-            return true;
+            customer.pay(this.price);
         }
-        return false;
     }
 }

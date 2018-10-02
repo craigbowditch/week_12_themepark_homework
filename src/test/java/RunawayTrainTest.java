@@ -28,21 +28,23 @@ public class RunawayTrainTest {
 
     @Test
     public void isTallEnoughToRide() {
-        assertEquals(true, runawayTrain.checkHeight(customer));
+        assertEquals(true, runawayTrain.isTallEnough(customer));
     }
 
     @Test
     public void isNotTallEnoughToRide() {
-        assertEquals(false, runawayTrain.checkHeight(customer2));
+        assertEquals(false, runawayTrain.isTallEnough(customer2));
     }
 
     @Test
     public void hasEnoughMoneyToRide() {
-        assertEquals(true, runawayTrain.checkMoney(customer));
+        runawayTrain.canPay(customer);
+        assertEquals(2.00, customer.getMoney(), 0.01);
     }
 
     @Test
     public void doesntHaveEnoughMoneyToRide() {
-        assertEquals(false, runawayTrain.checkMoney(customer2));
+        runawayTrain.canPay(customer2);
+        assertEquals(3.00, customer2.getMoney(), 0.01);
     }
 }
