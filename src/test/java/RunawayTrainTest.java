@@ -12,7 +12,7 @@ public class RunawayTrainTest {
     @Before
     public void before(){
         customer = new Customer("Jimmy", 1.65, 6.00);
-        customer2 = new Customer("Stevie", 1.50, 4.00);
+        customer2 = new Customer("Stevie", 1.50, 3.00);
         runawayTrain = new RunawayTrain(1.60, 4.00);
     }
 
@@ -34,5 +34,15 @@ public class RunawayTrainTest {
     @Test
     public void isNotTallEnoughToRide() {
         assertEquals(false, runawayTrain.checkHeight(customer2));
+    }
+
+    @Test
+    public void hasEnoughMoneyToRide() {
+        assertEquals(true, runawayTrain.checkMoney(customer));
+    }
+
+    @Test
+    public void doesntHaveEnoughMoneyToRide() {
+        assertEquals(false, runawayTrain.checkMoney(customer2));
     }
 }

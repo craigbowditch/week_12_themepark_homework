@@ -35,4 +35,14 @@ public class LogFlumeTest {
     public void isNotTallEnoughToRide() {
         assertEquals(false, logFlume.checkHeight(customer2));
     }
+
+    @Test
+    public void hasEnoughMoneyToRide() {
+        assertEquals(true, logFlume.checkMoney(customer));
+    }
+
+    @Test
+    public void doesntHaveEnoughMoneyToRide() {
+        assertEquals(false, logFlume.checkMoney(customer2));
+    }
 }

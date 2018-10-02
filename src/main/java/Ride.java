@@ -22,4 +22,11 @@ public abstract class Ride {
         }
         return false;
     }
+
+    public boolean checkMoney(Customer customer){
+        if (customer.getMoney() >= this.price){
+            return true;
+        }
+        return false;
+    }
 }

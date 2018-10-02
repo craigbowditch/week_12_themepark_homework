@@ -35,4 +35,14 @@ public class RollercoasterTest {
     public void isNotTallEnoughToRide() {
         assertEquals(false, rollercoaster.checkHeight(customer2));
     }
+
+    @Test
+    public void hasEnoughMoneyToRide() {
+        assertEquals(true, rollercoaster.checkMoney(customer));
+    }
+
+    @Test
+    public void doesntHaveEnoughMoneyToRide() {
+        assertEquals(false, rollercoaster.checkMoney(customer2));
+    }
 }
